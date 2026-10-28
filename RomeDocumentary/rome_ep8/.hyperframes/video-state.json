@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "historyId": "f522ac89-f1fb-4b3e-80be-6ac7c82adf0b",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/engine.js": {
+      "hash": "550e287e3c4959daef39c783f7dcdea79f53df82c7138205b2054ff72460e1d1",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/55/550e287e3c4959daef39c783f7dcdea79f53df82c7138205b2054ff72460e1d1"
+    },
+    "assets/engine_maps.js": {
+      "hash": "bbe1d57930d82727d2a28a42d0aa9704f8af5dd13f2035b52d577f8e5c00c4b3",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/bb/bbe1d57930d82727d2a28a42d0aa9704f8af5dd13f2035b52d577f8e5c00c4b3"
+    },
+    "assets/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "assets/media-generation-adriatic-coast-0-ffe8dc5d-1e17-4cac-8292-9e9d7a7ff19d.webp": {
+      "hash": "b627322623886bbd2ad7f24c45ae1a8b7f17af45592d3e64dc0c49927db02efb",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/b6/b627322623886bbd2ad7f24c45ae1a8b7f17af45592d3e64dc0c49927db02efb"
+    },
+    "assets/media-generation-battlefield-0-a8678d03-326e-4a49-ba66-fc305ce9dc99.webp": {
+      "hash": "4fe37ba6ec05b1800066d3d5ea38d918db09dad969e315fd4aba58b900a7711c",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/4f/4fe37ba6ec05b1800066d3d5ea38d918db09dad969e315fd4aba58b900a7711c"
+    },
+    "assets/media-generation-greek-temple-city-0-77afbbf7-0ab4-41a1-b86c-ab87ebbe5aef.webp": {
+      "hash": "5776637784178855cb84c72f803b749cabf0bf262180b0261c68410fa08338a8",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/57/5776637784178855cb84c72f803b749cabf0bf262180b0261c68410fa08338a8"
+    },
+    "assets/media-generation-iberia-coast-0-03dc926f-7900-412e-bde1-e48d8d04abe7.webp": {
+      "hash": "1f45bfe7371208553b6d3823c7b25290f56eb4e10cdb493469ffd62f670c7690",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/1f/1f45bfe7371208553b6d3823c7b25290f56eb4e10cdb493469ffd62f670c7690"
+    },
+    "assets/media-generation-palace-hall-0-db10d1b3-6b6a-473e-abae-895c5d9fcfad.webp": {
+      "hash": "c15c8548524b53d8bcbfb4adbf3da08cc96b71b890dfd1dc43be5141aaae7238",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/c1/c15c8548524b53d8bcbfb4adbf3da08cc96b71b890dfd1dc43be5141aaae7238"
+    },
+    "assets/media-generation-rome-gates-0-e3815d2a-234a-4da5-a429-5c20ec7eeafb.webp": {
+      "hash": "b0da3534932f7b49dbb05edc4fccdca9eee684a8ab08a88a56058224b679949b",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/b0/b0da3534932f7b49dbb05edc4fccdca9eee684a8ab08a88a56058224b679949b"
+    },
+    "assets/media-generation-sea-battle-0-e732ace4-3f7b-4d8d-9c0b-428d3986e41a.webp": {
+      "hash": "366e770cc5ba5298671fa649fa00d53a663c7b50cab09892c5ed5a38f219f9ee",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/36/366e770cc5ba5298671fa649fa00d53a663c7b50cab09892c5ed5a38f219f9ee"
+    },
+    "assets/media-generation-senate-hall-0-5ff84c21-7f98-480d-8205-1395c081f34f.webp": {
+      "hash": "4334b54ec78b9fa3965d9d461e7918796a67617c3cc897b97af924caf43f7294",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/43/4334b54ec78b9fa3965d9d461e7918796a67617c3cc897b97af924caf43f7294"
+    },
+    "audio_cues.json": {
+      "hash": "3c7507b5900284ca160f75f2158694cece399ce1e89147d06f27503f3ae9ab72",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/3c/3c7507b5900284ca160f75f2158694cece399ce1e89147d06f27503f3ae9ab72"
+    },
+    "index.html": {
+      "hash": "560e573f2752e1da7855240db2fb614dea54390d746d1394293550f57884613b",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/56/560e573f2752e1da7855240db2fb614dea54390d746d1394293550f57884613b"
+    },
+    "assets/aurelia.png": {
+      "hash": "e4a72d7140f15c9423f53dff252b4d0d2a3dac3f16dd0be327076c5b6e2d0bd7",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/e4/e4a72d7140f15c9423f53dff252b4d0d2a3dac3f16dd0be327076c5b6e2d0bd7"
+    },
+    "assets/brutus.png": {
+      "hash": "73b52c678b1e4b7d911fa6f18f501c8df6d310207d8abcebf45b2a6c8aa5da38",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/73/73b52c678b1e4b7d911fa6f18f501c8df6d310207d8abcebf45b2a6c8aa5da38"
+    },
+    "assets/caesar.png": {
+      "hash": "077a2b46a1b894885b0674d391cad4082a25a7065f3ab1fd7d21e463cb45c2d1",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/07/077a2b46a1b894885b0674d391cad4082a25a7065f3ab1fd7d21e463cb45c2d1"
+    },
+    "assets/catiline.png": {
+      "hash": "a618654be8b259eec22913e2b797ba921020f65f899b5430d8524208ce76a08a",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/a6/a618654be8b259eec22913e2b797ba921020f65f899b5430d8524208ce76a08a"
+    },
+    "assets/cinna.png": {
+      "hash": "0adc15edc5c9c0d3b8300f213e636c655b30407615c52dc80fba412894172a9d",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/0a/0adc15edc5c9c0d3b8300f213e636c655b30407615c52dc80fba412894172a9d"
+    },
+    "assets/crassus.png": {
+      "hash": "9e5e04baea59fe70b1ef342aab020c16a6141135c735d21a06cb60da00d33ff4",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/9e/9e5e04baea59fe70b1ef342aab020c16a6141135c735d21a06cb60da00d33ff4"
+    },
+    "assets/crown.png": {
+      "hash": "548ee6379a939d1e18c5129bbc51b46801ba7618d0f62f34c032f4849f79cc8f",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/54/548ee6379a939d1e18c5129bbc51b46801ba7618d0f62f34c032f4849f79cc8f"
+    },
+    "assets/flaccus.png": {
+      "hash": "4465e68b770be46b0df16a3c1c314f0053b5ee9946aac8018caabc07c15601db",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/44/4465e68b770be46b0df16a3c1c314f0053b5ee9946aac8018caabc07c15601db"
+    },
+    "assets/legionary.png": {
+      "hash": "70faa0a83e65febeed8e3908f1a31d6d2dd58a5f72b28407820338b7bf641828",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/70/70faa0a83e65febeed8e3908f1a31d6d2dd58a5f72b28407820338b7bf641828"
+    },
+    "assets/marius.png": {
+      "hash": "c5c0f1212a7ced15cfa75416d5f39c103b83e55a876653282fb50104c8401819",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/c5/c5c0f1212a7ced15cfa75416d5f39c103b83e55a876653282fb50104c8401819"
+    },
+    "assets/mithridates.png": {
+      "hash": "f462b210eea058c42a7b4e568ce9857b07ae9d0421e2d81d316138f7049613d4",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/f4/f462b210eea058c42a7b4e568ce9857b07ae9d0421e2d81d316138f7049613d4"
+    },
+    "assets/murena.png": {
+      "hash": "75635d953746489a62d1213abfd8198745abc9aa95b67fa6d8010fbdb169e8b7",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/75/75635d953746489a62d1213abfd8198745abc9aa95b67fa6d8010fbdb169e8b7"
+    },
+    "assets/octavius.png": {
+      "hash": "8999df76da196d6af05c5d30f8e3c0b59ae67c88d837efdfff065275297a06d1",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/89/8999df76da196d6af05c5d30f8e3c0b59ae67c88d837efdfff065275297a06d1"
+    },
+    "assets/perperna.png": {
+      "hash": "176ce30e038ef9c52e8c13bd22e8b8604844b147d2c84c1c73ae697ebc547cb2",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/17/176ce30e038ef9c52e8c13bd22e8b8604844b147d2c84c1c73ae697ebc547cb2"
+    },
+    "assets/pirate.png": {
+      "hash": "b106f2df0a8ec53bedc56754036428801b28c6ea59f48e83f959e6f5b2b88b6b",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/b1/b106f2df0a8ec53bedc56754036428801b28c6ea59f48e83f959e6f5b2b88b6b"
+    },
+    "assets/pompeia.png": {
+      "hash": "80cf39dbdff72af4146778d45777d27d90795aca9e4254833fa31650ff981792",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/80/80cf39dbdff72af4146778d45777d27d90795aca9e4254833fa31650ff981792"
+    },
+    "assets/pompey.png": {
+      "hash": "2121007e798e20f3c449b2892ce9d6b7af26fcf4e9693401b98459e76b7fa91f",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/21/2121007e798e20f3c449b2892ce9d6b7af26fcf4e9693401b98459e76b7fa91f"
+    },
+    "assets/sertorius.png": {
+      "hash": "19c72955efec2d4eddaeb871e8414ac1bcdce7346100709cb9736ad1d3f17333",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/19/19c72955efec2d4eddaeb871e8414ac1bcdce7346100709cb9736ad1d3f17333"
+    },
+    "assets/spartacus.png": {
+      "hash": "01bf30bf7f5919b4a2bbc13d12029604f2a88adfa3177e06a4254f95e4756188",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/01/01bf30bf7f5919b4a2bbc13d12029604f2a88adfa3177e06a4254f95e4756188"
+    },
+    "assets/storyteller.png": {
+      "hash": "3f85a76126058148d6c6adefc8cbe2523a1c635607c5b34fa0f6fa1abd5c76cf",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/3f/3f85a76126058148d6c6adefc8cbe2523a1c635607c5b34fa0f6fa1abd5c76cf"
+    },
+    "assets/sulla.png": {
+      "hash": "e60e0bd2d593e97fc80afb7906575839ac4d03e4adfa9df724e319205ef3d8cc",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/e6/e60e0bd2d593e97fc80afb7906575839ac4d03e4adfa9df724e319205ef3d8cc"
+    },
+    "assets/wife.png": {
+      "hash": "2e880a45185e7c9b2de657da31663494fc38818511bc11fc2a4d0ecef6b864c0",
+      "content": "/home/hatch/.cache/hyperframes/history/f522ac89-f1fb-4b3e-80be-6ac7c82adf0b/blobs/2e/2e880a45185e7c9b2de657da31663494fc38818511bc11fc2a4d0ecef6b864c0"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "3cd23596-2822-4881-a941-5c0425abbbf8"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "0dc4f56b-af28-407d-8563-0fd6f45a3ad9",
+        "scope": "project",
+        "report": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e8/.hyperframes/artifacts/checks/0dc4f56b-af28-407d-8563-0fd6f45a3ad9.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793169401914,
+        "contentHash": "5e79720d9ab6335010adac9388027f0e5abf6bb238c0c0df4a1265265a639135",
+        "revision": null,
+        "inputFingerprint": "57761e7797dab0554509f626b9a92b1e392eb981a7f3d7c39ecde291ab5afa33",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "id": "3cd23596-2822-4881-a941-5c0425abbbf8",
+        "scope": "project",
+        "report": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e8/.hyperframes/artifacts/checks/3cd23596-2822-4881-a941-5c0425abbbf8.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793169455277,
+        "contentHash": "5e79720d9ab6335010adac9388027f0e5abf6bb238c0c0df4a1265265a639135",
+        "revision": null,
+        "inputFingerprint": "57761e7797dab0554509f626b9a92b1e392eb981a7f3d7c39ecde291ab5afa33",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  }
+}

@@ -1,0 +1,3642 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 218,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 9 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 10 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 5 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 3 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "composition_heavy_overlay_count_high",
+        "severity": "warning",
+        "message": "This composition has 41 elements carrying \"heavy overlay\" CSS (filter:blur, radial-gradient, or clip-path). Field signal: a composition with ~40 such elements (including opacity:0 / visibility:hidden ones) captures solid-black for the first ~half of the render, recovering near the end. Reproduces identically via drawElement, forced screenshot capture, and snapshot, so the capture layer itself is the offender (not encoder/mux). Independent of duration. Presence alone matters; only display:none elements are excluded here.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes / transitions into separate .html files under compositions/ and concat the pieces (FFmpeg or the runtime's slideshow) so each capture only sees a small subset of heavy overlays at once. Even hidden overlays (opacity:0 / visibility:hidden) contribute: either remove truly unused ones from the source or scope them into their own per-transition sub-composition. If an overlay is genuinely inert for the whole clip, use display:none so it never enters the render tree. Field ref ts=1784040753 (#hyperframes-cli-feedback)."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_0\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_1\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_2\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_3\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_4\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_4",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_5\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_5",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_5\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_6\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_6",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_6\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_7\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_7",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_7\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_8\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_8",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_8\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_9\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_9",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_9\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_10\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_10",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_10\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"hmap_11\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#hmap_11",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"hmap_11\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_0_0_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_0_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_0_0_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_0_1_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_0_1_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_0_1_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_0_2_governor\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_0_2_governor",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_0_2_governor\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_0_3_sextus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_0_3_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_0_3_sextus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_0_4_legionary\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_0_4_legionary",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_0_4_legionary\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_0_5_dismissed_soldier\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_0_5_dismissed_soldier",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_0_5_dismissed_soldier\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_1_0_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_1_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_1_0_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_1_1_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_1_1_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_1_1_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_1_2_lepidus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_1_2_lepidus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_1_2_lepidus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_1_3_citizen\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_1_3_citizen",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_1_3_citizen\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_1_4_envoy\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_1_4_envoy",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_1_4_envoy\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_1_5_slave_rebel\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_1_5_slave_rebel",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_1_5_slave_rebel\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_2_0_sextus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_2_0_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_2_0_sextus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_2_1_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_2_1_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_2_1_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_2_2_admiral\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_2_2_admiral",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_2_2_admiral\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_3_0_sextus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_3_0_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_3_0_sextus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_3_1_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_3_1_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_3_1_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_3_2_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_3_2_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_3_2_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_3_3_octavia\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_3_3_octavia",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_3_3_octavia\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_4_0_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_4_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_4_0_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_4_1_cleopatra\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_4_1_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_4_1_cleopatra\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_4_2_citizen\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_4_2_citizen",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_4_2_citizen\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_5_0_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_5_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_5_0_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_5_1_parthian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_5_1_parthian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_5_1_parthian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_5_2_artavasdes\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_5_2_artavasdes",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_5_2_artavasdes\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_6_0_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_6_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_6_0_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_6_1_agrippa\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_6_1_agrippa",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_6_1_agrippa\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_6_2_sextus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_6_2_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_6_2_sextus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_6_3_lepidus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_6_3_lepidus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_6_3_lepidus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_6_4_legionary\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_6_4_legionary",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_6_4_legionary\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_7_0_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_7_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_7_0_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_7_1_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_7_1_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_7_1_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_7_2_sextus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_7_2_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_7_2_sextus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_7_3_artavasdes\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_7_3_artavasdes",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_7_3_artavasdes\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_7_4_cleopatra\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_7_4_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_7_4_cleopatra\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_8_0_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_8_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_8_0_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_8_1_sailor\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_8_1_sailor",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_8_1_sailor\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_8_2_legionary\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_8_2_legionary",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_8_2_legionary\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_9_0_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_9_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_9_0_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_9_1_octavia\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_9_1_octavia",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_9_1_octavia\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_9_2_cleopatra\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_9_2_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_9_2_cleopatra\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_9_3_plancus\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_9_3_plancus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_9_3_plancus\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_9_4_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_9_4_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_9_4_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_10_0_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_10_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_10_0_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_10_1_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_10_1_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_10_1_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_10_2_caesarion\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_10_2_caesarion",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_10_2_caesarion\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_10_3_cleopatra\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_10_3_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_10_3_cleopatra\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_10_4_agrippa\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_10_4_agrippa",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_10_4_agrippa\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_10_5_deserter\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_10_5_deserter",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_10_5_deserter\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_11_0_octavian\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_11_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_11_0_octavian\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_11_1_caesarion\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_11_1_caesarion",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_11_1_caesarion\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_11_2_heir\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_11_2_heir",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_11_2_heir\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_11_3_antony\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_11_3_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_11_3_antony\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_11_4_cleopatra\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_11_4_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_11_4_cleopatra\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"f_11_5_storyteller\"> is a timeline element that contains nested <img>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#f_11_5_storyteller",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"f_11_5_storyteller\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_0_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_0_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_0_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_0_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_0_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_0_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_0_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_0_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_0_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_0_3\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_0_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_0_3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_1_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_1_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_1_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_1_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_1_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_1_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_1_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_1_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_1_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_2_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_2_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_2_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_2_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_2_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_2_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_2_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_2_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_2_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_3_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_3_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_3_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_3_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_3_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_3_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_3_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_3_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_3_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_4_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_4_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_4_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_4_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_4_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_4_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_5_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_5_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_5_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_5_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_5_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_5_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_6_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_6_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_6_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_6_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_6_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_6_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_6_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_6_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_6_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_6_3\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_6_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_6_3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_7_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_7_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_7_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_7_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_7_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_7_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_7_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_7_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_7_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_7_3\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_7_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_7_3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_8_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_8_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_8_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_8_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_8_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_8_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_9_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_9_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_9_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_9_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_9_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_9_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_9_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_9_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_9_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_10_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_10_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_10_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_10_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_10_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_10_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_10_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_10_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_10_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_10_3\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_10_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_10_3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_10_4\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_10_4",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_10_4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_11_0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_11_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_11_0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_11_1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_11_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_11_1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_11_2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_11_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_11_2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"t_11_3\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#t_11_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"t_11_3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_0\"> runs from 6000s to 6069s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6069, or make <div id=\"hmap_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_1\"> runs from 6069s to 6111s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6111, or make <div id=\"hmap_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_2\"> runs from 6111s to 6160s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6160, or make <div id=\"hmap_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_3\"> runs from 6160s to 6207s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6207, or make <div id=\"hmap_3\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_4\"> runs from 6207s to 6230s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_4",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6230, or make <div id=\"hmap_4\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_5\"> runs from 6230s to 6246s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_5",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6246, or make <div id=\"hmap_5\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_6\"> runs from 6246s to 6308s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_6",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6308, or make <div id=\"hmap_6\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_7\"> runs from 6308s to 6378s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_7",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6378, or make <div id=\"hmap_7\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_8\"> runs from 6378s to 6400s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_8",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6400, or make <div id=\"hmap_8\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_9\"> runs from 6400s to 6446s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_9",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6446, or make <div id=\"hmap_9\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_10\"> runs from 6446s to 6526s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_10",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6526, or make <div id=\"hmap_10\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"hmap_11\"> runs from 6526s to 6579.3s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#hmap_11",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6579.3, or make <div id=\"hmap_11\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_0_0_octavian\"> runs from 6000.5s to 6070s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_0_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6070, or make <div id=\"f_0_0_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_0_1_antony\"> runs from 6012.5s to 6056s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_0_1_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6056, or make <div id=\"f_0_1_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_0_2_governor\"> runs from 6019.5s to 6025s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_0_2_governor",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6025, or make <div id=\"f_0_2_governor\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_0_3_sextus\"> runs from 6041.5s to 6049s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_0_3_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6049, or make <div id=\"f_0_3_sextus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_0_4_legionary\"> runs from 6048.5s to 6056s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_0_4_legionary",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6056, or make <div id=\"f_0_4_legionary\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_0_5_dismissed_soldier\"> runs from 6055.5s to 6070s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_0_5_dismissed_soldier",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6070, or make <div id=\"f_0_5_dismissed_soldier\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_1_0_antony\"> runs from 6069.5s to 6112s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_1_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6112, or make <div id=\"f_1_0_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_1_1_octavian\"> runs from 6075.5s to 6106s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_1_1_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6106, or make <div id=\"f_1_1_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_1_2_lepidus\"> runs from 6080.5s to 6083s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_1_2_lepidus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6083, or make <div id=\"f_1_2_lepidus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_1_3_citizen\"> runs from 6082.5s to 6091s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_1_3_citizen",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6091, or make <div id=\"f_1_3_citizen\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_1_4_envoy\"> runs from 6090.5s to 6112s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_1_4_envoy",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6112, or make <div id=\"f_1_4_envoy\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_1_5_slave_rebel\"> runs from 6105.5s to 6112s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_1_5_slave_rebel",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6112, or make <div id=\"f_1_5_slave_rebel\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_2_0_sextus\"> runs from 6136.5s to 6161s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_2_0_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6161, or make <div id=\"f_2_0_sextus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_2_1_octavian\"> runs from 6143.5s to 6161s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_2_1_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6161, or make <div id=\"f_2_1_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_2_2_admiral\"> runs from 6149.5s to 6161s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_2_2_admiral",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6161, or make <div id=\"f_2_2_admiral\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_3_0_sextus\"> runs from 6160.5s to 6208s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_3_0_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6208, or make <div id=\"f_3_0_sextus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_3_1_octavian\"> runs from 6173.5s to 6208s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_3_1_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6208, or make <div id=\"f_3_1_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_3_2_antony\"> runs from 6179.5s to 6188s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_3_2_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6188, or make <div id=\"f_3_2_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_3_3_octavia\"> runs from 6187.5s to 6208s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_3_3_octavia",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6208, or make <div id=\"f_3_3_octavia\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_4_0_antony\"> runs from 6207.5s to 6231s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_4_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6231, or make <div id=\"f_4_0_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_4_1_cleopatra\"> runs from 6213.5s to 6231s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_4_1_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6231, or make <div id=\"f_4_1_cleopatra\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_4_2_citizen\"> runs from 6224.5s to 6231s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_4_2_citizen",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6231, or make <div id=\"f_4_2_citizen\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_5_0_antony\"> runs from 6230.5s to 6247s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_5_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6247, or make <div id=\"f_5_0_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_5_1_parthian\"> runs from 6230.5s to 6247s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_5_1_parthian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6247, or make <div id=\"f_5_1_parthian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_5_2_artavasdes\"> runs from 6236.5s to 6247s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_5_2_artavasdes",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6247, or make <div id=\"f_5_2_artavasdes\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_6_0_octavian\"> runs from 6246.5s to 6309s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_6_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6309, or make <div id=\"f_6_0_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_6_1_agrippa\"> runs from 6252.5s to 6276s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_6_1_agrippa",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6276, or make <div id=\"f_6_1_agrippa\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_6_2_sextus\"> runs from 6258.5s to 6271s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_6_2_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6271, or make <div id=\"f_6_2_sextus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_6_3_lepidus\"> runs from 6270.5s to 6309s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_6_3_lepidus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6309, or make <div id=\"f_6_3_lepidus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_6_4_legionary\"> runs from 6275.5s to 6309s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_6_4_legionary",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6309, or make <div id=\"f_6_4_legionary\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_7_0_octavian\"> runs from 6308.5s to 6379s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_7_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6379, or make <div id=\"f_7_0_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_7_1_antony\"> runs from 6315.5s to 6379s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_7_1_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6379, or make <div id=\"f_7_1_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_7_2_sextus\"> runs from 6315.5s to 6322s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_7_2_sextus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6322, or make <div id=\"f_7_2_sextus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_7_3_artavasdes\"> runs from 6321.5s to 6327s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_7_3_artavasdes",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6327, or make <div id=\"f_7_3_artavasdes\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_7_4_cleopatra\"> runs from 6326.5s to 6379s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_7_4_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6379, or make <div id=\"f_7_4_cleopatra\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_8_0_antony\"> runs from 6378.5s to 6401s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_8_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6401, or make <div id=\"f_8_0_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_8_1_sailor\"> runs from 6387.5s to 6401s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_8_1_sailor",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6401, or make <div id=\"f_8_1_sailor\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_8_2_legionary\"> runs from 6393.5s to 6401s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_8_2_legionary",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6401, or make <div id=\"f_8_2_legionary\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_9_0_antony\"> runs from 6400.5s to 6447s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_9_0_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6447, or make <div id=\"f_9_0_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_9_1_octavia\"> runs from 6400.5s to 6423s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_9_1_octavia",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6423, or make <div id=\"f_9_1_octavia\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_9_2_cleopatra\"> runs from 6417.5s to 6435s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_9_2_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6435, or make <div id=\"f_9_2_cleopatra\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_9_3_plancus\"> runs from 6434.5s to 6447s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_9_3_plancus",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6447, or make <div id=\"f_9_3_plancus\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_9_4_octavian\"> runs from 6440.5s to 6447s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_9_4_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6447, or make <div id=\"f_9_4_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_10_0_octavian\"> runs from 6446.5s to 6527s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_10_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6527, or make <div id=\"f_10_0_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_10_1_antony\"> runs from 6464.5s to 6507s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_10_1_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6507, or make <div id=\"f_10_1_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_10_2_caesarion\"> runs from 6452.5s to 6471s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_10_2_caesarion",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6471, or make <div id=\"f_10_2_caesarion\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_10_3_cleopatra\"> runs from 6470.5s to 6495s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_10_3_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6495, or make <div id=\"f_10_3_cleopatra\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_10_4_agrippa\"> runs from 6494.5s to 6527s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_10_4_agrippa",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6527, or make <div id=\"f_10_4_agrippa\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_10_5_deserter\"> runs from 6506.5s to 6520s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_10_5_deserter",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6520, or make <div id=\"f_10_5_deserter\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_11_0_octavian\"> runs from 6550.5s to 6580.3s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_11_0_octavian",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6580.3, or make <div id=\"f_11_0_octavian\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_11_1_caesarion\"> runs from 6557.5s to 6564s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_11_1_caesarion",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6564, or make <div id=\"f_11_1_caesarion\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_11_2_heir\"> runs from 6557.5s to 6564s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_11_2_heir",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6564, or make <div id=\"f_11_2_heir\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_11_3_antony\"> runs from 6563.5s to 6580.3s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_11_3_antony",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6580.3, or make <div id=\"f_11_3_antony\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_11_4_cleopatra\"> runs from 6563.5s to 6569s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_11_4_cleopatra",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6569, or make <div id=\"f_11_4_cleopatra\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"f_11_5_storyteller\"> runs from 6568.5s to 6580.3s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#f_11_5_storyteller",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6580.3, or make <div id=\"f_11_5_storyteller\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_0_0\"> runs from 6000s to 6005.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_0_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6005.1, or make <div id=\"t_0_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_0_1\"> runs from 6029s to 6035.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_0_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6035.1, or make <div id=\"t_0_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_0_2\"> runs from 6048s to 6055.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_0_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6055.1, or make <div id=\"t_0_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_0_3\"> runs from 6064s to 6069.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_0_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6069.1, or make <div id=\"t_0_3\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_1_0\"> runs from 6069s to 6075.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_1_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6075.1, or make <div id=\"t_1_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_1_1\"> runs from 6099s to 6105.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_1_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6105.1, or make <div id=\"t_1_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_1_2\"> runs from 6107s to 6111.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_1_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6111.1, or make <div id=\"t_1_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_2_0\"> runs from 6116s to 6122.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_2_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6122.1, or make <div id=\"t_2_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_2_1\"> runs from 6143s to 6149.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_2_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6149.1, or make <div id=\"t_2_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_2_2\"> runs from 6158s to 6160.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_2_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6160.1, or make <div id=\"t_2_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_3_0\"> runs from 6160s to 6165.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_3_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6165.1, or make <div id=\"t_3_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_3_1\"> runs from 6187s to 6191.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_3_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6191.1, or make <div id=\"t_3_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_3_2\"> runs from 6197s to 6203.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_3_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6203.1, or make <div id=\"t_3_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_4_0\"> runs from 6213s to 6218.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_4_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6218.1, or make <div id=\"t_4_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_4_1\"> runs from 6224s to 6230.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_4_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6230.1, or make <div id=\"t_4_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_5_0\"> runs from 6230s to 6236.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_5_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6236.1, or make <div id=\"t_5_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_5_1\"> runs from 6236s to 6242.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_5_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6242.1, or make <div id=\"t_5_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_6_0\"> runs from 6252s to 6258.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_6_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6258.1, or make <div id=\"t_6_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_6_1\"> runs from 6275s to 6281.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_6_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6281.1, or make <div id=\"t_6_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_6_2\"> runs from 6281s to 6286.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_6_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6286.1, or make <div id=\"t_6_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_6_3\"> runs from 6298s to 6308.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_6_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6308.1, or make <div id=\"t_6_3\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_7_0\"> runs from 6315s to 6321.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_7_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6321.1, or make <div id=\"t_7_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_7_1\"> runs from 6321s to 6332.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_7_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6332.1, or make <div id=\"t_7_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_7_2\"> runs from 6343s to 6352.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_7_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6352.1, or make <div id=\"t_7_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_7_3\"> runs from 6371s to 6377.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_7_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6377.1, or make <div id=\"t_7_3\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_8_0\"> runs from 6387s to 6393.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_8_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6393.1, or make <div id=\"t_8_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_8_1\"> runs from 6393s to 6400.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_8_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6400.1, or make <div id=\"t_8_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_9_0\"> runs from 6400s to 6405.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_9_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6405.1, or make <div id=\"t_9_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_9_1\"> runs from 6429s to 6434.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_9_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6434.1, or make <div id=\"t_9_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_9_2\"> runs from 6440s to 6446.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_9_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6446.1, or make <div id=\"t_9_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_10_0\"> runs from 6458s to 6464.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_10_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6464.1, or make <div id=\"t_10_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_10_1\"> runs from 6464s to 6470.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_10_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6470.1, or make <div id=\"t_10_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_10_2\"> runs from 6494s to 6499.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_10_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6499.1, or make <div id=\"t_10_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_10_3\"> runs from 6506s to 6513.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_10_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6513.1, or make <div id=\"t_10_3\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_10_4\"> runs from 6519s to 6525.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_10_4",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6525.1, or make <div id=\"t_10_4\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_11_0\"> runs from 6550s to 6556.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_11_0",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6556.1, or make <div id=\"t_11_0\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_11_1\"> runs from 6557s to 6563.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_11_1",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6563.1, or make <div id=\"t_11_1\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_11_2\"> runs from 6563s to 6568.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_11_2",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6568.1, or make <div id=\"t_11_2\"> end at or before 579.3s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"t_11_3\"> runs from 6575s to 6579.1s, past the root composition's data-duration of 579.3s, so it is cut off in previews, posters and renders.",
+        "selector": "#t_11_3",
+        "dataAttributes": {},
+        "sourceFile": "/home/hatch/workspace/documentary-demo/rome_next10_v3_e11/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 6579.1, or make <div id=\"t_11_3\"> end at or before 579.3s."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "sweep_static",
+        "severity": "warning",
+        "time": 0,
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "message": "Nothing on screen moved under seek.",
+        "fixHint": "If the composition is meant to be still, add `data-no-timeline` to the element with `data-composition-id`. Otherwise confirm it seeks a paused GSAP/CSS timeline under `data-*` timing attributes rather than only autoplaying.",
+        "firstSeen": 0,
+        "lastSeen": 0,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          0
+        ]
+      }
+    ],
+    "duration": 579.3,
+    "samples": [
+      32.183,
+      96.55,
+      160.917,
+      225.283,
+      289.65,
+      354.017,
+      418.383,
+      482.75,
+      547.117
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      32.183,
+      160.917,
+      289.65,
+      418.383,
+      547.117
+    ],
+    "checked": 0,
+    "passed": 0
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "first_frame_empty",
+        "severity": "warning",
+        "message": "Frame 0 shows only the background, and the first frame is the thumbnail on social players: have the title or key image already on screen at 0 s instead of entering from nothing; see references/review.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 579 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.9669999999999987,
+    "samples": 599
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
