@@ -19,8 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Remaining 8 episodes to render in parallel
-        episode: [4, 5, 6, 7, 8, 9, 10, 11]
+        # All 11 episodes rendered concurrently in parallel
+        episode: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
     steps:
       - name: Checkout Code
