@@ -1,0 +1,53 @@
+name: Publish Rendered Episodes to GitHub Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Workflow Run ID with Rendered Artifacts'
+        required: true
+        default: '40724179025'
+      release_tag:
+        description: 'Release Tag Name'
+        required: true
+        default: 'v1.0.0-rome-documentary'
+
+permissions:
+  contents: write
+
+jobs:
+  publish_release:
+    name: Package and Publish Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Download Artifacts from Cloud Run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Downloading artifacts from run ${{ github.event.inputs.run_id }}..."
+          gh run download ${{ github.event.inputs.run_id }} --dir ./artifacts_download
+          
+          echo "Flattening MP4 video files into release_files/..."
+          mkdir -p ./release_files
+          find ./artifacts_download -name "*.mp4" -exec cp {} ./release_files/ \;
+          ls -lh ./release_files/
+
+      - name: Create GitHub Release with Direct CDN Links
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.event.inputs.release_tag }}"
+          
+          # Delete existing release/tag if already exists
+          gh release delete "$TAG" -y 2>/dev/null || true
+          git tag -d "$TAG" 2>/dev/null || true
+          git push origin :refs/tags/"$TAG" 2>/dev/null || true
+
+          echo "Creating Release $TAG with all 11 rendered episodes..."
+          gh release create "$TAG" ./release_files/*.mp4 \
+            --title "Rome Documentary 110-Min (All 11 Rendered Episodes)" \
+            --notes "Full 110-minute historical documentary with normalized local timelines (t=0.0s). Delivered via Fastly CDN for fast line-speed downloading."
