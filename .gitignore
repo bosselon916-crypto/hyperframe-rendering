@@ -1,0 +1,20 @@
+# Node & Python
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+.agents/
+
+# Video outputs & temporary archives
+*.mp4
+*.m4a
+*.zip
+*.part
+rendered_outputs/
+rome_ch01a_5min/
+5-minute sample project zip.zip
+
+# System & IDE files
+.DS_Store
+.idea/
+.vscode/
