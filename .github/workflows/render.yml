@@ -15,7 +15,7 @@ on:
 jobs:
   render_episodes:
     name: Render Episode ${{ matrix.episode }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -31,16 +31,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install System Dependencies & FFmpeg
+      - name: Install HyperFrames CLI & Browser Dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 \
-            libcups2 libdrm2 libxkbcommon0 libatspi2.0-0 libxcomposite1 libxdamage1 \
-            libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 libcairo2 libasound2 fonts-liberation
-
-      - name: Install HyperFrames CLI & Chrome
-        run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg fonts-liberation
           npm install -g hyperframes@0.8.198
+          npx playwright install-deps chromium
           hyperframes browser ensure
 
       - name: Render Episode ${{ matrix.episode }}
