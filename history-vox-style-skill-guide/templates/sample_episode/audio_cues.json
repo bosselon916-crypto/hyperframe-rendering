@@ -1,0 +1,6 @@
+[
+  { "t": 0.5, "sfx": "paper_wipe" },
+  { "t": 4.2, "sfx": "whoosh_soft" },
+  { "t": 10.0, "sfx": "paper_pop" },
+  { "t": 14.8, "sfx": "whoosh_soft" }
+]

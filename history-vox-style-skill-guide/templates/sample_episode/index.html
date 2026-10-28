@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vox Style Sample Episode</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #111; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+    
+    #stage {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      background: #f1e6c8; /* Parchment canvas */
+      overflow: hidden;
+      font-family: 'Georgia', serif;
+    }
+
+    /* Cinematic Film Grain Overlay */
+    #grain {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      opacity: 0.18;
+      mix-blend-mode: multiply;
+      z-index: 1000;
+    }
+
+    .layer {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      will-change: transform, opacity;
+    }
+
+    .cutout {
+      position: absolute;
+      filter: drop-shadow(0 15px 25px rgba(20, 15, 10, 0.4));
+      transform-origin: center bottom;
+    }
+
+    .banner {
+      position: absolute;
+      background: #2b1f14;
+      color: #f7edd0;
+      padding: 14px 28px;
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <!-- STAGE: data-start is ALWAYS 0.0, data-duration is the episode duration in seconds -->
+  <div id="stage" data-composition-id="sample_ep" data-start="0" data-duration="600.0" data-width="1920" data-height="1080">
+    
+    <!-- Film Grain Filter -->
+    <svg id="grain" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+
+    <!-- Visual Scenes (data-start is LOCAL to this episode: 0.0 to 600.0) -->
+    <div class="layer" data-start="0.0" data-duration="15.0" id="scene-intro">
+      <div class="banner" style="top: 200px; left: 150px;">The Rise of the Republic</div>
+    </div>
+
+  </div>
+
+  <script src="assets/gsap.min.js"></script>
+  <script>
+    // Animation definition with LOCAL timestamps starting at 0.0s
+    window.ROME_DATA = {
+      meta: { id: "sample_ep", duration: 600.0 },
+      beats: [
+        {
+          start: 0.0,
+          end: 15.0,
+          zoom: { at: 0.0, scale: 1.15, x: -50, y: -20, ease: "power2.out" }
+        }
+      ]
+    };
+  </script>
+</body>
+</html>
