@@ -1,0 +1,52 @@
+name: Render Web Video Project (HyperFrames / Remotion)
+
+on:
+  workflow_dispatch:
+    inputs:
+      quality:
+        description: 'Render Quality'
+        required: true
+        default: 'draft'
+
+permissions:
+  contents: write
+
+jobs:
+  render_episodes:
+    name: Render Episode ${{ matrix.episode }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Run up to 20 parallel runner jobs simultaneously
+        episode: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup FFmpeg (Static Binary - Never use apt-get)
+        uses: federicocarboni/setup-ffmpeg@v3
+
+      - name: Install Browser Dependencies & HyperFrames
+        run: |
+          npx playwright install-deps chromium
+          npm install -g hyperframes@0.8.198
+          hyperframes browser ensure
+
+      - name: Render Episode
+        run: |
+          cd "RomeDocumentary/rome_ep${{ matrix.episode }}"
+          hyperframes render --quality ${{ github.event.inputs.quality || 'draft' }} --output "../../rome_ep${{ matrix.episode }}_silent.mp4"
+
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rome_ep${{ matrix.episode }}_silent
+          path: rome_ep${{ matrix.episode }}_silent.mp4
+          retention-days: 7
