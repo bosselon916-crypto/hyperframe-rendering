@@ -2,6 +2,7 @@
 """
 Automated GitHub Actions Artifact Downloader
 Downloads rendered video episodes from GitHub Actions runs directly to rendered_outputs/.
+Uses curl under the hood to cleanly handle GitHub's presigned S3/Azure redirect authentication.
 """
 
 import os
@@ -33,7 +34,6 @@ def get_github_token():
 def get_repo_slug():
     try:
         remote_url = subprocess.check_output("git config --get remote.origin.url", shell=True).decode().strip()
-        # Clean remote url
         slug = re.sub(r"^git@github\.com:", "", remote_url)
         slug = re.sub(r"^https://github\.com/", "", slug)
         slug = re.sub(r"\.git$", "", slug)
@@ -70,7 +70,7 @@ def main():
         print("⚠️ No artifacts found on GitHub.")
         return
 
-    # Filter and keep the latest artifact per name
+    # Filter and keep the latest artifact per episode name
     latest_by_name = {}
     for a in artifacts:
         name = a["name"]
@@ -83,7 +83,7 @@ def main():
         return int(nums[0]) if nums else 999
 
     sorted_names = sorted(latest_by_name.keys(), key=ep_sort_key)
-    print(f"📦 Found {len(sorted_names)} unique episode artifacts.\n")
+    print(f"📦 Found {len(sorted_names)} unique episode artifacts to download.\n")
 
     for idx, name in enumerate(sorted_names, 1):
         art = latest_by_name[name]
@@ -93,28 +93,35 @@ def main():
         tmp_zip = f"/tmp/{name}_{aid}.zip"
 
         print(f"[{idx}/{len(sorted_names)}] Downloading {name} (ID: {aid}, Size: {size_mb:.1f} MB)...")
-        dl_req = urllib.request.Request(
-            f"https://api.github.com/repos/{repo}/actions/artifacts/{aid}/zip",
-            headers={
-                "Authorization": f"Bearer {token}",
-                "Accept": "application/vnd.github+json"
-            }
-        )
+        
+        # Use curl with -L: curl automatically drops the Authorization header when redirected cross-domain
+        url = f"https://api.github.com/repos/{repo}/actions/artifacts/{aid}/zip"
+        curl_cmd = [
+            "curl", "-s", "-L",
+            "-H", f"Authorization: Bearer {token}",
+            "-H", "Accept: application/vnd.github+json",
+            url,
+            "-o", tmp_zip
+        ]
+        
+        res = subprocess.run(curl_cmd)
+        if res.returncode != 0 or not os.path.exists(tmp_zip) or os.path.getsize(tmp_zip) < 1000:
+            print(f"    ❌ Download failed for {name} (returncode {res.returncode})")
+            continue
 
-        with urllib.request.urlopen(dl_req) as dl_resp, open(tmp_zip, "wb") as f_out:
-            f_out.write(dl_resp.read())
-
-        print(f"    Extracting to {dest_mp4}...")
-        with zipfile.ZipFile(tmp_zip, "r") as z:
-            z.extractall(OUTPUT_DIR)
-
-        if os.path.exists(tmp_zip):
-            os.remove(tmp_zip)
-
-        print(f"    ✅ Ready: {dest_mp4}")
+        print(f"    Extracting into {OUTPUT_DIR}...")
+        try:
+            with zipfile.ZipFile(tmp_zip, "r") as z:
+                z.extractall(OUTPUT_DIR)
+            print(f"    ✅ Ready: {dest_mp4} ({os.path.getsize(dest_mp4) / 1e6:.1f} MB)")
+        except Exception as e:
+            print(f"    ❌ Failed to extract {tmp_zip}: {e}")
+        finally:
+            if os.path.exists(tmp_zip):
+                os.remove(tmp_zip)
 
     print("\n=======================================================")
-    print(f"🎉 All {len(sorted_names)} episodes ready in {OUTPUT_DIR}/")
+    print(f"🎉 Download complete! All episodes are in {OUTPUT_DIR}/")
     print("=======================================================")
 
 if __name__ == "__main__":

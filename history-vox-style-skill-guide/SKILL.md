@@ -1,11 +1,11 @@
 ---
 name: history-vox-style-skill-guide
-description: Complete end-to-end blueprint for creating, animating, and rendering Vox-style historical animated documentaries using HyperFrames, GSAP, SVG parchment maps, and GitHub Actions parallel cloud rendering with automated Python downloading and lossless video stitching.
+description: Complete end-to-end blueprint for creating, animating, and rendering Vox-style historical animated documentaries using HyperFrames, GSAP, SVG parchment maps, and GitHub Actions parallel cloud rendering with automated GitHub CDN Release packaging for batches > 1 GB and lossless video stitching.
 ---
 
 # History Vox-Style Animated Documentary: Complete Production Skill & Guide
 
-This skill guides an AI agent through the complete lifecycle of creating **Vox/Johnny Harris-style historical animated documentaries** from concept to finalized 4K/1080p video, rendered for free using GitHub Actions cloud infrastructure.
+This skill guides an AI agent through the complete lifecycle of creating **Vox/Johnny Harris-style historical animated documentaries** from concept to finalized 4K/1080p video, rendered for free using GitHub Actions cloud infrastructure with automatic CDN release publishing.
 
 ---
 
@@ -14,14 +14,14 @@ This skill guides an AI agent through the complete lifecycle of creating **Vox/J
 A Vox-style documentary relies on a distinctive visual language:
 1. **Textured Parchment Canvas**: `#f1e6c8` or `#ece1c3` paper texture background.
 2. **Dynamic Animated Film Grain**: SVG noise filter with animated `feTurbulence` seed for high-end cinematic tactile feel.
-3. **Transparent Historical Cutouts**: Transparent PNGs of figures, statues, and relics with paper drop-shadows (`filter: drop-shadow(0 15px 25px rgba(0,0,0,0.35))`) and gentle hover/float micro-motions.
+3. **Transparent Historical Cutouts**: Transparent PNGs of figures, statues, and relics with paper drop-shadows (`filter: drop-shadow(0 15px 25px rgba(20, 15, 10, 0.4))`) and gentle hover/float micro-motions.
 4. **Animated Vector Route Maps**: SVG paths drawn dynamically using GSAP `strokeDashoffset` and pulsating location pins.
 5. **Kinetic Typography & Banners**: Paper-tape text highlights, typewriter captions, and stamp-like title cards.
 6. **Virtual Camera Motion**: GSAP smooth panning and zooming on the `#stage` container to focus viewer attention.
 
 ---
 
-## 2. The Complete Production Pipeline
+## 2. Complete Production Workflow
 
 ```mermaid
 graph TD
@@ -29,11 +29,15 @@ graph TD
     B --> C[Asset Sourcing: Cutouts, Maps & Stills]
     C --> D[HTML5 + HyperFrames Scene Composition]
     D --> E[GSAP Motion & Camera Animation]
-    E --> F[CRITICAL: Local Timestamp Normalization at 0.0s]
-    F --> G[Git Split-Batch Push to GitHub]
-    G --> H[GitHub Actions Matrix Parallel Render]
-    H --> I[Automated Python Artifact Download]
-    I --> J[FFmpeg Lossless Final Stitch & Audio Mux]
+    E --> F[CRITICAL: Normalize Timestamps to 0.0s - Prevent Yellow Screen]
+    F --> G[Git Split-Batch Push to GitHub < 130MB]
+    G --> H[GitHub Actions Parallel Matrix Render]
+    H --> I{Total Video Batch > 1 GB?}
+    I -- Yes: Mandatory CDN Step --> J[Trigger Publish Release Workflow: Fastly CDN]
+    I -- No --> K[Direct API Download]
+    J --> L[Fast Local Download via GitHub Release CDN: 30 MB/s]
+    K --> L
+    L --> M[FFmpeg Lossless Final Stitch & Audio Mux]
 ```
 
 ---
@@ -58,7 +62,7 @@ Every episode is a standalone HyperFrames composition container.
       position: relative;
       width: 1920px;
       height: 1080px;
-      background: #f1e6c8;
+      background: #f1e6c8; /* Parchment canvas */
       overflow: hidden;
       font-family: 'Cinzel', 'Georgia', serif;
     }
@@ -140,29 +144,34 @@ Every episode is a standalone HyperFrames composition container.
 
 ---
 
-## 4. ⚠️ CRITICAL RULE: Local vs. Absolute Timestamps
+## 4. ⚠️ CRITICAL FAILURE: The "Yellow Screen Bug" (Videos 2 to 11)
 
-### The Yellow Screen Bug (and how to prevent it):
-When a multi-episode documentary (e.g. 110 minutes total) is sliced into separate episode HTML files:
-- **WRONG**: Retaining global master timestamps (e.g. Episode 2 starting at `600s`, Episode 3 at `1200s`).
-  - Because HyperFrames renders each episode stage from $t = 0.0\text{s}$ to $600.0\text{s}$, elements set to `data-start="600.0"` will **never appear**. The camera records 10 minutes of flat background parchment yellow!
-- **CORRECT**: Every episode file **MUST start its timeline at `0.0s`**.
+### Symptom:
+When rendering a sliced multi-part documentary:
+- **Episode 1 renders perfectly** with rich visual maps, portraits, and kinetic banners (> 150,000 unique colors).
+- **Episodes 2 through 11 produce large ~500 MB video files that display ONLY a flat, blank parchment yellow screen** with film grain noise.
 
-### The Normalization Formula:
-For episode $N$ (where each episode is $D$ seconds long, e.g. $D = 600.0\text{s}$):
-$$\text{Offset} = (N - 1) \times D$$
-$$\text{Local Time} = \max(0.0, \text{Global Time} - \text{Offset})$$
+### Root Cause:
+The documentary was authored as one monolithic master timeline (e.g., $0\text{s}$ to $6,579\text{s}$). When sliced into episode folders:
+- `rome_ep1` starts at $0.0\text{s}$.
+- `rome_ep2` retains global timestamps: elements have `data-start="600.0"`, beats at $t \ge 600.0$.
+- `rome_ep3` elements start at $t \ge 1200.0$.
+- `rome_ep4..ep11` elements start at $1800\text{s}, 2400\text{s}, 3000\text{s}$, etc.
 
-This offset must be subtracted from:
-1. Every HTML element attribute: `data-start="X"` inside `#stage`.
-2. Every timestamp in `window.ROME_DATA`: `start`, `end`, `at`, `until` in `beats`, `cast`, `teach`, `captions`, `banners`, `routes`, `maps`.
-3. Every audio SFX cue `t` in `audio_cues.json`.
+**Why HyperFrames Renders Yellow**:
+HyperFrames evaluates each episode container `#stage` from local time $t = 0.0\text{s}$ to $t = 600.0\text{s}$. Because $t \in [0, 600]$, elements starting at $t \ge 600\text{s}$ never trigger. HyperFrames keeps all elements hidden (`display: none`), recording 10 minutes (18,000 frames) of pure `#stage` background color `#f1e6c8` with animated grain!
+
+### The Non-Negotiable Rule:
+**Every single episode HTML file MUST start its local timeline at $t = 0.0\text{s}$.**
+
+$$\text{Episode Offset} = (\text{Episode Number} - 1) \times \text{Episode Duration}$$
+$$\text{Local Time} = \max(0.0, \text{Global Time} - \text{Episode Offset})$$
 
 ---
 
-## 5. Automated Timestamp Normalizer Script
+## 5. Automated Pre-Render Normalization Script
 
-Save this script as `normalize_timestamps.py` in the documentary root folder:
+Always run this script across all sliced episodes before committing and rendering:
 
 ```python
 import os, json, re
@@ -180,12 +189,13 @@ def normalize_all_episodes(base_dir, ep_count=11, duration_per_ep=600.0):
         with open(html_path, "r", encoding="utf-8") as f:
             html = f.read()
 
+        # Preserve opening <div id="stage" ...> tag
         stage_idx = html.find('id="stage"')
         close_stage = html.find('>', stage_idx)
         head_part = html[:close_stage + 1]
         body_part = html[close_stage + 1:]
 
-        # 1. Normalize data-start in HTML
+        # 1. Normalize data-start in HTML body
         def repl_start(m):
             val = float(m.group(1))
             new_val = max(0.0, round(val - offset, 2))
@@ -193,7 +203,7 @@ def normalize_all_episodes(base_dir, ep_count=11, duration_per_ep=600.0):
 
         body_part = re.sub(r'data-start="([\d\.]+)"', repl_start, body_part)
 
-        # 2. Normalize JSON timestamps
+        # 2. Normalize JSON timestamps in window.ROME_DATA
         json_m = re.search(r'window\.ROME_DATA=(\{.*?\});</script>', body_part)
         if json_m:
             data = json.loads(json_m.group(1))
@@ -214,7 +224,7 @@ def normalize_all_episodes(base_dir, ep_count=11, duration_per_ep=600.0):
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(head_part + body_part)
 
-        # 3. Normalize audio cues
+        # 3. Normalize audio SFX cue timestamps
         if os.path.exists(cues_path):
             with open(cues_path, "r", encoding="utf-8") as f:
                 cues = json.load(f)
@@ -232,216 +242,167 @@ if __name__ == "__main__":
 
 ---
 
-## 6. GitHub Actions Cloud Rendering ($0 Cost)
+## 6. 🚀 MANDATORY ARCHITECTURE: GitHub CDN Release Publishing for Batches > 1 GB
 
-Render 11 episodes in parallel for free using GitHub standard Ubuntu runners.
+### The Large Batch Problem:
+When rendering multi-part video series (e.g. 11 episodes = ~3.5 GB total):
+1. **Raw Artifact Limitations**: GitHub Actions stores raw build artifacts in **Microsoft Azure Blob Storage** (`*.blob.core.windows.net`).
+2. **Terminal Choke**: Azure Blob Storage raw storage servers suffer severe international ISP throttling and packet drop (~1 KB/s download speed, taking 90+ hours).
+3. **401 Unauthorized Bug**: Python `urllib` passes GitHub bearer authentication tokens across the 302 redirect to Azure, causing immediate `401 Unauthorized` errors.
 
-### Workflow File: `.github/workflows/render.yml`
+### The CDN Solution:
+Whenever total video output **exceeds 1 GB**, **DO NOT download raw artifacts directly to local machine**.
+Instead, **ALWAYS publish the rendered episodes to a GitHub Release**.
+
+#### Why GitHub Releases?
+* Delivered via **Fastly / GitHub Global CDN (`github.com/releases/download/...`)**.
+* Completely bypasses Azure Blob Storage throttling.
+* Downloads at full internet connection speed (**25–35 MB/s** vs. 1 KB/s).
+* Supports HTTP Range resume (`curl -C -`) so partial downloads never restart from zero.
+
+---
+
+## 7. Cloud Packaging Workflow (`publish_release.yml`)
+
+Save this workflow to `.github/workflows/publish_release.yml`:
 
 ```yaml
-name: Render Rome Episodes (HyperFrames)
+name: Publish Rendered Episodes to GitHub Release
 
 on:
   workflow_dispatch:
     inputs:
-      quality:
-        description: 'Render Quality'
+      run_id:
+        description: 'Workflow Run ID with Rendered Artifacts'
         required: true
-        default: 'draft'
-        type: choice
-        options:
-          - draft
-          - high
+      release_tag:
+        description: 'Release Tag Name'
+        required: true
+        default: 'v1.0.0-rome-documentary'
+
+permissions:
+  contents: write
 
 jobs:
-  render_episodes:
-    name: Render Episode ${{ matrix.episode }}
+  publish_release:
+    name: Package and Publish Release
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        # All 11 episodes rendered concurrently in parallel
-        episode: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Setup FFmpeg (Static Binary)
-        uses: federicocarboni/setup-ffmpeg@v3
-
-      - name: Install Browser Dependencies & HyperFrames
+      - name: Download Artifacts from Cloud Run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx playwright install-deps chromium
-          npm install -g hyperframes@0.8.198
-          hyperframes browser ensure
+          echo "Downloading artifacts from run ${{ github.event.inputs.run_id }}..."
+          gh run download ${{ github.event.inputs.run_id }} --dir ./artifacts_download
+          
+          echo "Flattening MP4 video files into release_files/..."
+          mkdir -p ./release_files
+          find ./artifacts_download -name "*.mp4" -exec cp {} ./release_files/ \;
+          ls -lh ./release_files/
 
-      - name: Render Episode ${{ matrix.episode }}
+      - name: Create GitHub Release with Direct CDN Links
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd "RomeDocumentary/rome_ep${{ matrix.episode }}"
-          hyperframes render --quality ${{ github.event.inputs.quality || 'draft' }} --output "../../rome_ep${{ matrix.episode }}_silent.mp4"
+          TAG="${{ github.event.inputs.release_tag }}"
+          
+          # Delete existing release/tag if already exists
+          gh release delete "$TAG" -y 2>/dev/null || true
+          git tag -d "$TAG" 2>/dev/null || true
+          git push origin :refs/tags/"$TAG" 2>/dev/null || true
 
-      - name: Upload Rendered Video Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: rome_ep${{ matrix.episode }}_silent
-          path: rome_ep${{ matrix.episode }}_silent.mp4
-          retention-days: 7
+          echo "Creating Release $TAG with all rendered episodes..."
+          gh release create "$TAG" ./release_files/*.mp4 \
+            --title "Rome Documentary 110-Min (All Rendered Episodes)" \
+            --notes "Full historical documentary rendered with normalized local timelines (t=0.0s). Delivered via Fastly CDN for fast line-speed downloading."
 ```
 
 ---
 
-## 7. Git Push Safety: Handling 100MB+ Batches
+## 8. Fast Resumable Downloader Script (`download_release_episodes.py`)
 
-GitHub HTTPS pushes fail with `RPC failed; HTTP 400` if the payload exceeds ~150-200MB.
-Always push multi-episode documentary assets in small split batches:
-```bash
-# Batch 1: Workflow + Episodes 4 to 7 (~110MB)
-git add .github/ RomeDocumentary/rome_ep4/ RomeDocumentary/rome_ep5/ RomeDocumentary/rome_ep6/ RomeDocumentary/rome_ep7/
-git commit -m "Add workflow and episodes 4-7"
-git push origin main
-
-# Batch 2: Episodes 8 to 11 (~110MB)
-git add RomeDocumentary/rome_ep8/ RomeDocumentary/rome_ep9/ RomeDocumentary/rome_ep10/ RomeDocumentary/rome_ep11/
-git commit -m "Add episodes 8-11"
-git push origin main
-
-# Batch 3: Episodes 1 to 3 (~120MB)
-git add RomeDocumentary/rome_ep1/ RomeDocumentary/rome_ep2/ RomeDocumentary/rome_ep3/
-git commit -m "Add episodes 1-3"
-git push origin main
-```
-
----
-
-## 8. Automated Python Downloader Script
-
-Save this script as `download_from_github.py` or `download_from_github.sh`. It queries the GitHub API, retrieves the latest artifact for each episode, and downloads them directly to `rendered_outputs/`:
+Run locally to download all episodes from the GitHub CDN Release at full speed:
 
 ```python
 #!/usr/bin/env python3
-import os
-import sys
-import json
-import urllib.request
-import zipfile
-import subprocess
+import os, sys, subprocess, urllib.request, json, re
 
 OUTPUT_DIR = os.path.abspath("rendered_outputs")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# 1. Fetch GitHub Token from local git keychain or env var
-token = os.environ.get("GITHUB_TOKEN")
-if not token:
-    try:
-        token = subprocess.check_output(
-            "printf 'protocol=https\\nhost=github.com\\n\\n' | git credential fill 2>/dev/null | grep '^password=' | cut -d= -f2",
-            shell=True
-        ).decode().strip()
-    except Exception:
-        pass
+RELEASE_TAG = "v1.0.0-rome-documentary"
+REPO = "bosselon916-crypto/hyperframe-rendering"
 
-if not token:
-    print("❌ Error: GitHub Token not found. Set GITHUB_TOKEN or authenticate git.")
-    sys.exit(1)
+print(f"📡 Fetching Release assets from {REPO} ({RELEASE_TAG})...")
+api_url = f"https://api.github.com/repos/{REPO}/releases/tags/{RELEASE_TAG}"
 
-# Detect repo from git remote
-remote_url = subprocess.check_output("git config --get remote.origin.url", shell=True).decode().strip()
-repo = remote_url.replace("https://github.com/", "").replace(".git", "")
-
-print(f"📡 Querying GitHub Artifacts API for repository: {repo}...")
-req = urllib.request.Request(
-    f"https://api.github.com/repos/{repo}/actions/artifacts?per_page=100",
-    headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
-)
-
+req = urllib.request.Request(api_url, headers={"User-Agent": "Mozilla/5.0"})
 with urllib.request.urlopen(req) as resp:
     data = json.loads(resp.read().decode())
 
-artifacts = data.get("artifacts", [])
-latest_by_name = {}
-for a in artifacts:
+assets = data.get("assets", [])
+def ep_sort(a):
+    nums = re.findall(r'\d+', a["name"])
+    return int(nums[0]) if nums else 999
+
+sorted_assets = sorted(assets, key=ep_sort)
+print(f"📦 Found {len(sorted_assets)} MP4 episode files in release.\n")
+
+for idx, a in enumerate(sorted_assets, 1):
     name = a["name"]
-    if name not in latest_by_name or a["created_at"] > latest_by_name[name]["created_at"]:
-        latest_by_name[name] = a
+    url = a["browser_download_url"]
+    expected_size = a["size"]
+    dest_path = os.path.join(OUTPUT_DIR, name)
 
-def ep_sort_key(name):
-    try:
-        return int(re.search(r'\d+', name).group())
-    except:
-        return 999
+    # Skip if already downloaded
+    if os.path.exists(dest_path) and os.path.getsize(dest_path) >= expected_size:
+        print(f"[{idx}/{len(sorted_assets)}] ✅ {name} already complete. Skipping.")
+        continue
 
-import re
-sorted_names = sorted(latest_by_name.keys(), key=ep_sort_key)
-print(f"📦 Found {len(sorted_names)} unique episode artifacts to download.\n")
+    print(f"[{idx}/{len(sorted_assets)}] ⬇️ Downloading {name} ({expected_size / 1e6:.1f} MB)...")
+    cmd = ["curl", "-L", "-C", "-", "--progress-bar", url, "-o", dest_path]
+    subprocess.run(cmd)
 
-for idx, name in enumerate(sorted_names, 1):
-    art = latest_by_name[name]
-    aid = art["id"]
-    dest_mp4 = os.path.join(OUTPUT_DIR, f"{name}.mp4")
-    tmp_zip = f"/tmp/{name}.zip"
-
-    print(f"[{idx}/{len(sorted_names)}] Downloading {name} (ID: {aid}, Size: {art['size_in_bytes'] / 1e6:.1f} MB)...")
-    dl_req = urllib.request.Request(
-        f"https://api.github.com/repos/{repo}/actions/artifacts/{aid}/zip",
-        headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
-    )
-    with urllib.request.urlopen(dl_req) as dl_resp, open(tmp_zip, "wb") as f_out:
-        f_out.write(dl_resp.read())
-
-    with zipfile.ZipFile(tmp_zip, "r") as z:
-        z.extractall(OUTPUT_DIR)
-    if os.path.exists(tmp_zip):
-        os.remove(tmp_zip)
-    print(f"   -> Successfully extracted to {dest_mp4}")
-
-print("\n🎉 All episodes successfully downloaded to rendered_outputs/!")
+print(f"\n🎉 All episodes successfully downloaded to {OUTPUT_DIR}/!")
 ```
 
 ---
 
-## 9. Final Lossless Concat & Audio Mux
+## 9. Final Lossless Stitch & Visual Verification
 
-Merge all silent episode videos into one continuous master documentary in seconds without re-encoding:
-
-1. Create `concat_list.txt`:
-```plaintext
-file 'rendered_outputs/rome_ep1_silent.mp4'
-file 'rendered_outputs/rome_ep2_silent.mp4'
-file 'rendered_outputs/rome_ep3_silent.mp4'
-file 'rendered_outputs/rome_ep4_silent.mp4'
-file 'rendered_outputs/rome_ep5_silent.mp4'
-file 'rendered_outputs/rome_ep6_silent.mp4'
-file 'rendered_outputs/rome_ep7_silent.mp4'
-file 'rendered_outputs/rome_ep8_silent.mp4'
-file 'rendered_outputs/rome_ep9_silent.mp4'
-file 'rendered_outputs/rome_ep10_silent.mp4'
-file 'rendered_outputs/rome_ep11_silent.mp4'
-```
-
-2. Run Lossless Merge:
+1. **Lossless Merge Command**:
 ```bash
-ffmpeg -f concat -safe 0 -i concat_list.txt -c copy full_documentary_silent.mp4
+ffmpeg -f concat -safe 0 -i templates/concat_list.txt -c copy full_documentary_silent.mp4
 ```
 
-3. Mux Final Audio:
+2. **Frame Diversity Verification Test**:
+Run this test on any rendered episode to verify that graphics are actively rendering and not stuck on a blank yellow canvas:
 ```bash
-ffmpeg -i full_documentary_silent.mp4 -i full_narration_mix.m4a -c:v copy -c:a aac -b:a 320k full_documentary_final.mp4
+ffmpeg -ss 00:00:25 -i rendered_outputs/rome_ep2_silent.mp4 -vframes 1 -q:v 2 /tmp/verify.jpg -y && \
+python3 -c "
+from PIL import Image
+im = Image.open('/tmp/verify.jpg')
+colors = len(set(im.getdata()))
+print(f'Unique colors: {colors}')
+assert colors > 5000, 'FAIL: Blank/yellow screen detected!'
+print('SUCCESS: Rich animation confirmed!')
+"
 ```
+*(> 10,000 unique colors = rich graphics; < 500 = blank canvas failure)*
 
 ---
 
-## Summary Checklist for Any Agent
+## Production Checklist
 
-- [ ] Does `#stage` have `data-start="0"` and `data-duration="EPISODE_SECONDS"`?
-- [ ] Are all elements inside `#stage` normalized to start at `0.0s` (no global offsets)?
-- [ ] Are all `window.ROME_DATA` timestamps (`start`, `end`, `at`, `until`) within $[0.0, \text{duration}]$?
-- [ ] Are git commits chunked under 130MB before pushing to GitHub?
-- [ ] Did GitHub Actions run with `federicocarboni/setup-ffmpeg@v3` and `npx playwright install-deps chromium`?
-- [ ] Was the dynamic downloader run to retrieve artifacts into `rendered_outputs/`?
-- [ ] Was the final video merged losslessly with `-c copy`?
+- [ ] Every episode has `#stage data-start="0"` and elements normalized to $0.0\text{s}$ (No global offsets).
+- [ ] Run `normalize_timestamps.py` before committing.
+- [ ] Git commits chunked under 130MB to avoid GitHub HTTPS push limits.
+- [ ] Run GitHub Actions render matrix.
+- [ ] **Batches > 1 GB**: Trigger `publish_release.yml` to package files onto Fastly CDN.
+- [ ] Download via `download_release_episodes.py` at 30 MB/s line speed.
+- [ ] Verify color count > 5,000 on sample frames.
+- [ ] Stitch losslessly with FFmpeg `-c copy`.
